@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer and Quotes</title>
+    <link rel="stylesheet" href="assets/CSS/bootstrap.min.css">
+    <style>
+        #popup{
+            height: 100vh;
+            width: 100vw;
+            position:fixed;
+        }
+    </style>
+</head>
+<body>
+    <div id="inpform" class="position-fixed flex-column justify-content-center align-items-center top-0 bottom-0 start-0 end-0" style="background-color: rgba(0, 0, 0, 0.3); display: none;">
+        <form style="width: 50%;">
+            <div>
+                <label for="title" class="form-label text-white">Title</label>
+                    <input class="form-control" type="text" placeholder="Enter your title" id="title">
+            </div>
+            <div>
+                <label for="date" class="form-label text-white">Date</label>
+                <input type="datetime-local" class="form-control" id="date">
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary mt-5" style="width: 50%;" onclick="onStart()">Start the timer</button>
+    </div>
+    <div class="z-n1 row text-center justify-content-center bg-primary mt-5 p-5">
+        <div class="col-3 text-white">
+            <h5 class="pb-2">Day</h5>
+            <p class="display-2 fw-bolder" id="day">00</p>
+        </div>
+        <div class="col-3 text-white">
+            <h5 class="pb-2">Hour</h5>
+            <p class="display-2 fw-bolder" id="hour">00</p>
+        </div>
+        <div class="col-3 text-white">
+            <h5 class="pb-2">Minute</h5>
+            <p class="display-2 fw-bolder" id="minute">00</p>
+        </div>
+        <div class="col-3 text-white">
+            <h5 class="pb-2">Second</h5>
+            <p class="display-2 fw-bolder" id="second">00</p>
+        </div>
+        <button type="button" onclick="togglePause()" id="pause" class="btn btn-warning mt-5" style="width: 20%;">Pause</button>
+    </div>
+
+    <div class="row border-1 border-dark bg-warning p-5 align-items-center">
+        <div class="col row justify-content-start">
+            <button type="button" class="btn btn-primary w-25" onclick="prev()">&lt; Previous</button>
+        </div>
+        <div class="col">
+            <div id="quote" class="text-center text-white display-4 fw-bolder"></div>
+        </div>
+        <div class="col row justify-content-end">
+            <button type="button" class="btn btn-primary w-25" onclick="next()">Next &gt;</button>
+        </div>
+    </div>
+    
+
+    <div id="popup" class="top-0 bottom-0 z-3 position-fixed w-100 justify-content-center align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.3); display: none;">
+        <div class="row flex-column">
+            <div class="bg-primary p-5 text-center fw-bolder display-4 text-white" id="alert"></div>
+            <button type="button" class="btn btn-info mt-5" onclick="closeAlert()">Close</button>
+        </div>
+    </div>
+
+    <script src="assets/JS/bootstrap.bundle.min.js"></script>
+    <script src="assets/JS/script.js"></script>
+</body>
+</html>
